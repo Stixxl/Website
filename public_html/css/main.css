@@ -1,8 +1,18 @@
-
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+body {
+ margin: 0;
+ background-image: url('../img/city_wallpaper.jpg');
+ background-repeat:no-repeat;
+ display: compact;
+ font: 20px/25px "Helvetica Neue", Helvetica, Arial, sans-serif;
+ color: whitesmoke;
+}
+.full {
+  background: url('../img/city_wallpaper.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 
 
