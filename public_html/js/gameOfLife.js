@@ -6,6 +6,9 @@ var COUNT_Y = HEIGHT / CELL_SIZE;
 var DELAY = 500;
 
 var playboard = matrix(COUNT_X, COUNT_Y, 0);
+playboard[10][10] = 1;
+playboard[10][11] = 1;
+playboard[10][12] = 1;
 var newPlayboard = matrix(COUNT_X, COUNT_Y, 0);
 //counts generations
 var counter = 0;
@@ -17,6 +20,20 @@ var canvas = document.getElementById("drawingBoard");
 var canvasContext = canvas.getContext("2d");
 var button = document.getElementById("playButton");
 var generationSpan = document.getElementById("counter");
+
+
+//creates grid
+for (var x = 0; x <= WIDTH; x += CELL_SIZE) {
+    canvasContext.moveTo(0.5 + x, 0);
+    canvasContext.lineTo(0.5 + x, HEIGHT);
+}
+for (var y = 0; y <= HEIGHT; y += CELL_SIZE) {
+    canvasContext.moveTo(0, 0.5 + y);
+    canvasContext.lineTo(WIDTH, 0.5 + y);
+}
+canvasContext.strokeStyle = "#fff";
+canvasContext.stroke();
+
 
 button.onclick = function () {
     switch (isRunning) {
@@ -104,7 +121,7 @@ function drawPlayboard()
     {
         for (var j = 0; j < 60; j++)
         {
-            if (newPlayboard[i][j] === 1) {
+            if (playboard[i][j] === 1) {
                 canvasContext.fillStyle = "#000";
             } else {
                 canvasContext.fillStyle = "#eee";
@@ -120,16 +137,7 @@ function drawPlayboard()
 
     generationSpan.innerHTML = "current generation: " + counter;
 }
-for (var x = 0; x <= WIDTH; x += CELL_SIZE) {
-    canvasContext.moveTo(0.5 + x, 0);
-    canvasContext.lineTo(0.5 + x, HEIGHT);
-}
-for (var y = 0; y <= HEIGHT; y += CELL_SIZE) {
-    canvasContext.moveTo(0, 0.5 + y);
-    canvasContext.lineTo(WIDTH, 0.5 + y);
-}
-canvasContext.strokeStyle = "#fff";
-canvasContext.stroke();
+
 function copyGrid(source, destination) {
     for (var h = 0; h < COUNT_Y; h++) {
         /*
