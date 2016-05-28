@@ -1,34 +1,29 @@
-var playboard = new Array(62); // create additional row up and down to simmulate additional neighbors
-var canvas = document.getElementById("drawingBoard");
-var canvasContext = canvas.getContext("2d");
-var button = document.getElementById("playButton");
-button.addEventListener("click", alert("DANGER ZONE!"), false);
+var playboard = new Array(62); // create additional row left up and down to simmplify the check of neighbors
+
 function playGame()
 {
     for (var i = 0; i < 62; i++)
+{
+    playboard[i] = new Array(62); // same reasoning as above
+    for (var j = 0; j < 62; j++)
     {
-        playboard[i] = new Array(62); // same reasoning as above
-        for (var j = 0; j < 62; j++)
-        {
-            playboard[i][j] = false; // false == dead, true == alive
-
-        }
+        playboard[i][j] = false; // false == dead, true == alive
     }
-    playboard[10][10] = true;
-    playboard[10][11] = true;
-    playboard[10][12] = true;
-    alert("playGame");
-    while (true)
-    {
+}
+playboard[10][10] = true;
+playboard[10][11] = true;
+playboard[10][12] = true;
 
-        //setTimeout(drawPlayboard(), 1000);
-        drawPlayboard();
-    }
+while(true)
+{
+
+    setTimeout(drawPlayboard(), 1000);
+}
 }
 
 function applyGameLogic()
 {
-alert("applyGameLogic");
+
     for (var i = 1; i < 61; i++)
     {
         for (var j = 1; j < 61; j++)
@@ -87,17 +82,19 @@ function countNeighbors(x, y)// returns the count of all neighbors that are true
 
 function drawPlayboard()
 {
-    alert("drawPlayboard");
-    applyGameLogic();
-    for (var i = 0; i < 60; i++)
+    var canvas = document.getElementById("drawingBoard");
+    var canvasContext = canvas.getContext("2d");
+        applyGameLogic();
+    for(var i = 0; i < 60; i++)
     {
-        for (var j = 0; j < 60; j++)
+        for(var j = 0; j <60; j++)
         {
-           var arc = canvasContext.arc(5 + 10 * i, 5 + 10 * j, 5, 0, 2 * Math.PI);
-            if (playboard[i][j])
+            canvasContext.arc(5 + 10 * i, 5 + 10 * j, 5, 0, 2* Math.PI);
+            if(playboard[i][j])
             {
                 canvasContext.fill();
-            } else
+            }
+            else
             {
                 canvasContext.stroke();
             }
