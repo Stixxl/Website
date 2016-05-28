@@ -11,25 +11,28 @@ and open the template in the editor.
         <title>Game of Life | Stiglmair</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css"> 
+        <link rel="apple-touch-icon" href="/img/favicon.ico">
         <style>
             body {
                 padding-top: 50px;
                 padding-bottom: 20px;
+                background: white;
+                color: black;
             }
         </style>
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/main.css"> 
-        <link rel="apple-touch-icon" href="/img/favicon.ico">
-
+        
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-        <script src="js/gameOfLife.js"></script>
+        <script type="text/javasript" src="js/gameOfLife.js" async></script>
     </head>
     <body>
         <div>
             <canvas id="drawingBoard" width="600" height="600" style="border:1px solid #d3d3d3;">
                 Your browser does not support the HTML5 canvas tag.</canvas>
         </div>
-        <button type="button" class="btn btn-primary btn-lg" onclick="playGame()">Play!</button>
+        <button id="playButton" type="button" class="btn btn-primary btn-lg">Play!</button>
     </body>
 </html>
