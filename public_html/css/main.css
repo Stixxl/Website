@@ -5,6 +5,8 @@ body {
  display: compact;
  font: 20px/25px "Helvetica Neue", Helvetica, Arial, sans-serif;
  color: whitesmoke;
+ padding-top: 70px;
+ padding-bottom: 20px;
 }
 .full {
   background: url('../img/city_wallpaper.jpg') no-repeat center center fixed; 
@@ -28,6 +30,14 @@ body {
 
 .navbar-default .navbar-nav>.active>a.github:before,
 .navbar-nav>li>a.github:before { background-image: url('../img/GitHub-logo_small.png'); }
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
 
 
 
